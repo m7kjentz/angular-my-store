@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+// ProductAlertsComponent が商品データを受け取れるようにするため、@angular/core から Input をインポートする
+import { Component, OnInit, Input } from "@angular/core";
+import { Product } from "../products";
 
 // @Component() デコレーター
 // 続くクラスがコンポーネントであることを示す
@@ -17,5 +19,9 @@ import { Component, OnInit } from "@angular/core";
 export class ProductAlertsComponent implements OnInit {
   constructor() {}
 
+  // @Input() デコレーター
+  // プロパティの値が親コンポーネントから渡されることを示す
+  // @Input() デコレーターを付けて、プロパティ product を定義する
+  @Input() product!: Product;
   ngOnInit(): void {}
 }
