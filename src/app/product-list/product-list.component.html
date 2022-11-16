@@ -7,4 +7,7 @@
   </h3>
   <p *ngIf="product.description">Description: {{ product.description }}</p>
   <button type="button" (click)="share()">Share</button>
+
+  <!-- プロパティバインディングを使用して、現在の製品をコンポーネントに渡す -->
+  <app-product-alerts [product]="product"></app-product-alerts>
 </div>
