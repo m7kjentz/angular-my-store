@@ -1,5 +1,5 @@
 // ProductAlertsComponent が商品データを受け取れるようにするため、@angular/core から Input をインポートする
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
 import { Product } from "../products";
 
 // @Component() デコレーター
@@ -22,6 +22,10 @@ export class ProductAlertsComponent implements OnInit {
   // @Input() デコレーター
   // プロパティの値が親コンポーネントから渡されることを示す
   // @Input() デコレーターを付けて、プロパティ product を定義する
-  @Input() product!: Product;
+  @Input() product: Product | undefined;
+
+  // notify という名前のプロパティを @Output() デコレーターと EventEmitter() のインスタンスで定義する
+  // @Output() で設定することで、notify プロパティの値が変更されたときにProductAlertsComponentがイベントを発行できる
+  @Output() notify = new EventEmitter();
   ngOnInit(): void {}
 }
